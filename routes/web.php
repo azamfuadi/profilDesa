@@ -29,3 +29,7 @@ Route::get('/contact', function () {
 Route::post('saveTourism','TourismController@store')->name('saveTourism');
 Route::get('/','TourismController@index')->name('/');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

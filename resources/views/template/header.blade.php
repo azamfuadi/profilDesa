@@ -59,6 +59,35 @@
 							</ul>
 						</li>
 						<li><a href="/contact">Contact</a></li>
+						@guest
+						<li>
+							<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+						</li>
+						@if (Route::has('register'))
+						<li>
+							<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+						</li>
+						@endif
+						@else
+						<li>
+							<a id="navbarDropdown" class="fh5co-sub-ddown sf-with-ul" href="#" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+								{{ Auth::user()->name }}
+							</a>
+							<ul class="fh5co-sub-menu">
+								<li>
+									<a href="{{ route('logout') }}" onclick="event.preventDefault();
+														                                                     document.getElementById('logout-form').submit();">
+										{{ __('Logout') }}
+									</a>
+
+									<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+										@csrf
+									</form>
+								</li>
+							</ul>
+						</li>
+						@endguest
 					</ul>
 				</nav>
 			</div>
