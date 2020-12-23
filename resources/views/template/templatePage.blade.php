@@ -24,6 +24,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
 
+    <!-- link bootraps v-5.0 -->
     <!-- Add glyphicon -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
@@ -34,8 +35,9 @@
     <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+     
     <!-- Superfish -->
-    <link rel="stylesheet" href="{{ asset('/css/superfish.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/superfish.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
@@ -103,6 +105,7 @@
     </div>
     <!-- END fh5co-wrapper -->
 
+  
     <!-- jQuery -->
 
     <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -120,7 +123,9 @@
 
     <!-- Main JS -->
     <script src="{{ asset('/js/main.js') }}"></script>
+    
 
 </body>
 
 </html>
+    
