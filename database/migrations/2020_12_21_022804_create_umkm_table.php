@@ -18,6 +18,8 @@ class CreateUmkmTable extends Migration
             $table->string('judul');
             $table->string('photos1_umkm');
             $table->longText('description_umkm');
+            $table->string('nomor_telp');
+            $table->string('url_map');
             $table->unsignedBigInteger('fk_user_id');
             $table->foreign('fk_user_id')->references('id')->on('users');
             $table->timestamps();

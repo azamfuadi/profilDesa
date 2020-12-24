@@ -1,7 +1,7 @@
 @extends('template.templatePage')
 @section('content')
 
-<!-- load css fot homePage -->
+<!-- load css for homePage -->
 <link rel="stylesheet" href="{{ asset('/css/homePage.css') }}">
 
 <!-- banner area -->
@@ -35,7 +35,7 @@
 						<h3 class="animated fadeInRightBig">Jelajahi Lebih Banyak <i class="fas fa-search-location"></i>
 						</h3>
 						<!-- button -->
-						<a href="#" class="animated fadeIn btn btn-theme">Jelajah UMKM</a>
+						<a href="/umkm" class="animated fadeIn btn btn-theme">Jelajah UMKM</a>
 					</div>
 				</div>
 			</div>
