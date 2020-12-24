@@ -56,7 +56,7 @@
 
 <br><br>
 <div class="fh5co-listing">
-
+	{{-- LIST Wisata --}}
 	<div class="container">
 		<div class="cls"></div>
 		<div class="row">
@@ -64,6 +64,27 @@
 			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
 				<a class="fh5co-listing-item">
 					<img src="{{asset('imgTourism/'.$item->photos1_tourism)}}"
+						alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
+					<div class="fh5co-listing-copy">
+						<h2>{{ $item->judul }}</h2>
+						<span class="icon">
+							<i class="glyphicon glyphicon-chevron-right"></i>
+						</span>
+					</div>
+				</a>
+			</div>
+			@endforeach
+			<!-- END 3 row -->
+		</div>
+	</div>
+	{{-- LIST UMKM --}}
+	<div class="container">
+		<div class="cls"></div>
+		<div class="row">
+			@foreach($dataUmkm as $item)
+			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
+				<a class="fh5co-listing-item">
+					<img src="{{asset('imgUmkm/'.$item->photos1_umkm)}}"
 						alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 					<div class="fh5co-listing-copy">
 						<h2>{{ $item->judul }}</h2>

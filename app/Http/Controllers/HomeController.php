@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tourism;
+use App\Umkm;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -34,6 +35,11 @@ class HomeController extends Controller
             ->limit(3)
             ->get();
 
-        return view('content.homePage', compact('dataTourism'));
+        $dataUmkm = Umkm::select('*')
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
+
+        return view('content.homePage', compact('dataTourism', 'dataUmkm'));
     }
 }
