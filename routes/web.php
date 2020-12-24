@@ -13,14 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('content/homePage');
-});
-
-
-Route::get('/wisata', function () {
-    return view('wisata/index');
-});
+Route::get('/wisata', 'TourismController@index')->name('/');
 
 Route::get('/umkm', function () {
     return view('umkm/index');
@@ -30,8 +23,8 @@ Route::get('/contact', function () {
     return view('content/contact');
 });
 
-Route::post('saveTourism','TourismController@store')->name('saveTourism');
-Route::get('/','TourismController@index')->name('/');
+Route::post('saveTourism', 'TourismController@store')->name('saveTourism');
+Route::get('/', 'HomeController@random')->name('/');
 
 
 Auth::routes();
