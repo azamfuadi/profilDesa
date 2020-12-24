@@ -1,5 +1,10 @@
 @extends('template.templatePage')
 @section('content')
+
+<!-- load css umkm -->
+<!-- load css for homePage -->
+<link rel="stylesheet" href="{{ asset('/css/umkm.css') }}">
+
 <!-- jumbotron area -->
 <div class="fh5co-hero">
     <div class="fh5co-overlay"></div>
@@ -15,39 +20,74 @@
 
 <div class="section-wrap" style="background-color: black">
   <div class="container">
-        <?php $j=0;for($i=1;$i<20;$i++):?>
-            <p class="text-header text-center mt-3 mb-3">UMKM Dusun ... Sambirejo <?php echo $i ?></p>
+        <!-- button for modal adding umkm -->
+        <div class="row">
+        <button class="btn btn-success " style="float:right; margin-bottom:10px; margin-right:2%;" data-toggle="modal" data-target="#exampleModal" > Tambah </button>
+        </div>
+        <!-- form modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="modal-title text-center" id="exampleModalLabel">Input Informasi</h3>
+					</div>
+				<div class="modal-body">
+					<form action="{{ route('saveUmkm')}}" method="post" enctype="multipart/form-data">
+					{{csrf_field()}}
+						<div class="mb-3">
+							<label for="recipient-name" class="col-form-label">Judul Informasi:</label>
+							<input type="text" class="form-control" id="judul" name="judul">
+						</div>
+						<div class="mb-3">
+							<label for="recipient-name" class="col-form-label">Gambar 1:</label>
+							<input type="file" class="form-control" id="photos" name="photos1">
+						</div>
+						<div class="mb-3">
+							<label for="message-text" class="col-form-label" >Deskripsi:</label>
+							<textarea class="form-control" id="description" name="description"></textarea>
+                            <p>Tersisa : <span id="jmlKarakter">600</span> Karakter</p>
+						</div>
+				</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Submit</button>
+
+					</div>
+				</form>
+				</div>
+			</div>
+		</div>
+		
+        <div style="both:clear;"></div>
+      <?php $j=0;?> @foreach($dataUmkm as $umkm)
+            <p class="text-header text-center mt-3 mb-3">UMKM {{$umkm->judul}}</p>
             <hr size="100px" width="30%">
         <div class="row mbottom">
             <?php if($j==1){?>
             <div class="col-md-6 mb-4  animate-box">
                 <div id="left-content">
-                    <p>&nbsp;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore, vel id doloribus, nisi quaerat aperiam commodi nemo quam nam consectetur perspiciatis dolorum culpa, sint corporis veritatis quis porro debitis autem?
-                        Hic nihil, error, quo id nobis est itaque ab ratione saepe aliquam sed pariatur, voluptatem distinctio suscipit. Quae id magni optio eligendi eaque, debitis, unde dolorem temporibus odio alias corporis.
-                    Vel ullam iusto ex impedit numquam molestias, nam sunt cumque quas optio reprehenderit, exercitationem minus illo tempore? Modi explicabo est sit voluptate, cum, ipsum animi ratione praesentium, sequi quisquam labore?</p>
+                    <p>&nbsp;{{ $umkm->description_umkm}}</p>
                 </div>  
             </div>
             <div class="col-md-6 mb-4  animate-fadeInLeft">
                 <div id="right-content">
-                    <img src="images/img-6.jpg" alt="">
+                    <img src="{{ asset('imgUmkm/'.$umkm->photos1_umkm)}}" alt="">
                 </div>
             </div>
             <?php $j=0; } else {?>
                 <div class="col-md-6 mb-4 animate-fadeInRight">
                     <div id="right-content">
-                    <img src="images/img-6.jpg" alt="">
+                    <img src="{{ asset('imgUmkm/'.$umkm->photos1_umkm)}}" alt="">
                 </div>
             </div> 
                 <div class="col-md-6  animate-box">
                 <div id="left-content">
-                    <p>&nbsp;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore, vel id doloribus, nisi quaerat aperiam commodi nemo quam nam consectetur perspiciatis dolorum culpa, sint corporis veritatis quis porro debitis autem?
-                        Hic nihil, error, quo id nobis est itaque ab ratione saepe aliquam sed pariatur, voluptatem distinctio suscipit. Quae id magni optio eligendi eaque, debitis, unde dolorem temporibus odio alias corporis.
-                    Vel ullam iusto ex impedit numquam molestias, nam sunt cumque quas optio reprehenderit, exercitationem minus illo tempore? Modi explicabo est sit voluptate, cum, ipsum animi ratione praesentium, sequi quisquam labore?</p>
+                    <p>&nbsp;{{ $umkm->description_umkm}}</p>
                 </div>  
             </div>
             <?php $j=1; } ?> 
         </div>
-        <?php endfor;?>
+        @endforeach
     </div>
 </div>
 @endsection

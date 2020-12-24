@@ -124,6 +124,19 @@
      
     <!-- Main JS -->
     <script src="{{ asset('/js/main.js') }}"></script>
+    <!-- link load js hitung karakter -->
+    <script>
+    
+    $(document).ready(function() {
+    $('#description').keyup(function() {
+        var len = this.value.length;
+        if (len >= 600) {
+            this.value = this.value.substring(0, 600);
+            }
+                $('#jmlKarakter').text(600 - len);       
+        });
+    });
+</script>
     
 
 </body>
