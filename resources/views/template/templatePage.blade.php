@@ -27,7 +27,7 @@
     <!-- link bootraps v-5.0 -->
     <!-- Add glyphicon -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    
+
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
     <!-- Animate.css -->
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
@@ -35,15 +35,13 @@
     <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-     
+
     <!-- Superfish -->
     <link rel="stylesheet" href="{{ asset('css/superfish.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-        crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
 
     <!-- Styles -->
     <!-- Bootstrap CSS -->
@@ -90,8 +88,7 @@
                                     <a href="#"><i class="fab fa-youtube"></i></a>
                                 </p>
                                 <p>Copyright 2016 Free Html5 <a href="#">Listing</a>. All Rights Reserved. <br>Made with
-                                    <i class="icon-heart3"></i> by <a href="http://freehtml5.co/"
-                                        target="_blank">Freehtml5.co</a>
+                                    <i class="icon-heart3"></i> by <a href="http://freehtml5.co/" target="_blank">Freehtml5.co</a>
                                     / Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
                             </div>
                         </div>
@@ -106,7 +103,7 @@
     </div>
     <!-- END fh5co-wrapper -->
 
-  
+
     <!-- jQuery -->
 
     <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -121,25 +118,23 @@
     <!-- Superfish -->
     <script src="{{ asset('js/hoverIntent.js') }}"></script>
     <script src="{{ asset('js/superfish.js') }}"></script>
-     
+
     <!-- Main JS -->
     <script src="{{ asset('/js/main.js') }}"></script>
     <!-- link load js hitung karakter -->
     <script>
-    
-    $(document).ready(function() {
-    $('#description').keyup(function() {
-        var len = this.value.length;
-        if (len >= 600) {
-            this.value = this.value.substring(0, 600);
-            }
-                $('#jmlKarakter').text(600 - len);       
+        $(document).ready(function() {
+            $('#description').keyup(function() {
+                var len = this.value.length;
+                if (len >= 600) {
+                    this.value = this.value.substring(0, 600);
+                }
+                $('#jmlKarakter').text(600 - len);
+            });
         });
-    });
-</script>
-    
+    </script>
+
 
 </body>
 
 </html>
-    
