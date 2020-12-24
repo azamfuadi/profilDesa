@@ -81,7 +81,11 @@
                         <a href="https://api.whatsapp.com/send?phone={{ $umkm->nomor_telp }}" target="blank" ><button class="btn btn-info"><i class="fab fa-whatsapp fa-2x"></i></button></a>
                         <a href="{{ $umkm->url_map }}" target="_blank"><button class="btn btn-info"><i class="fas fa-map-marked fa-2x"></i></button></a>
                         <!-- Harus diberi keterangan status user apakah merupakan admin atau user biasa-->
-                        <button class="btn btn-hapus">Hapus Data</button>
+                        <form action ="/umkm/deleteUmkm/{{$umkm->id_umkm}}" method="POST">
+                        {{csrf_field()}}
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
                     </div>
                 </div>  
             </div>
