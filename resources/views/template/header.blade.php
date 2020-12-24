@@ -1,5 +1,5 @@
 <div id="fh5co-header">
-	<header id="fh5co-header-section">
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" id="fh5co-header-section">
 		<div class="container">
 			<div class="nav-header">
 				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
@@ -75,6 +75,6 @@
 				</nav>
 			</div>
 		</div>
-	</header>
+	</nav>
 
 </div>

@@ -23,14 +23,13 @@ Route::get('/contact', function () {
     return view('content/contact');
 });
 
-
-
-Auth::routes();
 Route::post('saveTourism', 'TourismController@store')->name('saveTourism');
 Route::post('saveUmkm', 'UmkmController@store')->name('saveUmkm');
 Route::get('/umkm', 'UmkmController@index')->name('/umkm');
 Route::DELETE('/umkm/deleteUmkm/{id}', 'UmkmController@destroy');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@random')->name('home');
 
 Route::get('/', 'HomeController@random')->name('/');
+
+Auth::routes();
