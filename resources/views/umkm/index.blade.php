@@ -43,6 +43,14 @@
 							<input type="file" class="form-control" id="photos" name="photos1">
 						</div>
 						<div class="mb-3">
+							<label for="recipient-name" class="col-form-label">Nomor Telp. :</label>
+							<input type="number" class="form-control" id="nomor_telp" name="nomor_telp">
+						</div>
+						<div class="mb-3">
+							<label for="recipient-name" class="col-form-label">Url Map :</label>
+							<input type="text" class="form-control" id="url_map" name="url_map">
+						</div>
+						<div class="mb-3">
 							<label for="message-text" class="col-form-label" >Deskripsi:</label>
 							<textarea class="form-control" id="description" name="description"></textarea>
                             <p>Tersisa : <span id="jmlKarakter">600</span> Karakter</p>
@@ -66,7 +74,14 @@
             <?php if($j==1){?>
             <div class="col-md-6 mb-4  animate-box">
                 <div id="left-content">
-                    <p>&nbsp;{{ $umkm->description_umkm}}</p>
+                    <div class="text-content">
+                        <p>&nbsp;{{ $umkm->description_umkm}}</p>
+                     </div>
+                     <div>
+                        <a href="https://api.whatsapp.com/send?phone={{ $umkm->nomor_telp }}" target="blank" ><button class="btn btn-info"><i class="fab fa-whatsapp fa-2x"></i></button></a>
+                        <a href="{{ $umkm->url_map }}" target="_blank"><button class="btn btn-info"><i class="fas fa-map-marked fa-2x"></i></button></a>
+                        
+                    </div>
                 </div>  
             </div>
             <div class="col-md-6 mb-4  animate-fadeInLeft">
@@ -82,7 +97,14 @@
             </div> 
                 <div class="col-md-6  animate-box">
                 <div id="left-content">
-                    <p>&nbsp;{{ $umkm->description_umkm}}</p>
+                    <div class="text-content">
+                        <p>&nbsp;{{ $umkm->description_umkm}}</p>
+                    </div>
+                    <div>
+                        <a href="https://api.whatsapp.com/send?phone={{ $umkm->nomor_telp }}" target="blank" ><button class="btn btn-info"><i class="fab fa-whatsapp fa-2x"></i></button></a>
+                        <a href="{{ $umkm->url_map }}" target="_blank"><button class="btn btn-info"><i class="fas fa-map-marked fa-2x"></i></button></a>
+                        
+                    </div>
                 </div>  
             </div>
             <?php $j=1; } ?> 

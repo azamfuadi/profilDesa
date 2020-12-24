@@ -41,6 +41,8 @@ class UmkmController extends Controller
         $dtUpload->judul=$request->judul;
         $dtUpload->photos1_umkm=$namaFile;
         $dtUpload->description_umkm=$request->description;
+        $dtUpload->nomor_telp=$request->nomor_telp;
+        $dtUpload->url_map=$request->url_map;
         $dtUpload->fk_user_id="1";
         $nm->move(public_path().'/imgUmkm',$namaFile);
         $dtUpload->save();
