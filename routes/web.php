@@ -34,4 +34,5 @@ Route::post('saveTourism','TourismController@store')->name('saveTourism');
 Route::post('saveUmkm','UmkmController@store')->name('saveUmkm');
 Route::get('/','TourismController@index')->name('/');
 Route::get('/umkm','UmkmController@index')->name('/umkm');
+Route::DELETE('/umkm/deleteUmkm/{id}','UmkmController@destroy');
 

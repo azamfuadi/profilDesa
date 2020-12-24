@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Umkm;
 class UmkmController extends Controller
@@ -91,7 +92,8 @@ class UmkmController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('umkms')->where('id_umkm', '=', $id)->delete();
+        return redirect()->action([UmkmController::class, 'index']);
     }
 }
 
