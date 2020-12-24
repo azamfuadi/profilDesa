@@ -22,6 +22,10 @@ Route::get('/wisata', function () {
     return view('wisata/index');
 });
 
+Route::get('/umkm', function () {
+    return view('umkm/index');
+});
+
 Route::get('/contact', function () {
     return view('content/contact');
 });

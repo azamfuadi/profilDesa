@@ -29,6 +29,7 @@
 										target="_blank">Sprint</a></li>
 							</ul>
 						</li>
+						<li><a href="/umkm">UMKM</a></li>
 						<li>
 							<a href="#" class="fh5co-sub-ddown sf-with-ul">
 								Joko Fathur <small><i class="glyphicon glyphicon-chevron-down"></i></small>

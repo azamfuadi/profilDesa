@@ -27,7 +27,7 @@
     <!-- link bootraps v-5.0 -->
     <!-- Add glyphicon -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
+    
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
     <!-- Animate.css -->
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="{{ asset('css/superfish.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
         integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
         crossorigin="anonymous" />
@@ -120,7 +121,7 @@
     <!-- Superfish -->
     <script src="{{ asset('js/hoverIntent.js') }}"></script>
     <script src="{{ asset('js/superfish.js') }}"></script>
-
+     
     <!-- Main JS -->
     <script src="{{ asset('/js/main.js') }}"></script>
     
