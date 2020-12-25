@@ -24,10 +24,12 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
                     <h3 class="modal-title text-center" id="exampleModalLabel">Input Informasi</h3>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('saveTourism')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('tourism.store')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Nama Wisata:</label>
@@ -40,6 +42,19 @@
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Deskripsi:</label>
                             <textarea class="form-control" id="description" name="description"></textarea>
+                            <p>Tersisa : <span id="jmlKarakter">600</span> Karakter</p>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Contact Person:</label>
+                            <input type="text" class="form-control" id="contact" name="contact">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Link Share Gmaps:</label>
+                            <input type="text" class="form-control" id="map_url" name="map_url">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Link API Map:</label>
+                            <input type="text" class="form-control" id="map_api" name="map_api">
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -54,13 +69,13 @@
 </div>
 <!--/ jumbotron end -->
 
-<div class="fh5co-listing" style="background-color: black">
+<div class="fh5co-listing">
     <div class="container">
         <div class="cls"></div>
         <div class="row">
             @foreach($dataTourism as $item)
             <div class="col-md-4 col-sm-4 fh5co-item-wrap">
-                <a class="fh5co-listing-item">
+                <a class="fh5co-listing-item" href="{{ route('tourism.show', ['tourism' => $item->id_tourism]) }}">
                     <img src="{{asset('imgTourism/'.$item->photos1_tourism)}}"
                         alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
                     <div class="fh5co-listing-copy">
@@ -75,6 +90,5 @@
             <!-- END 3 row -->
         </div>
     </div>
-</div>
 </div>
 @endsection

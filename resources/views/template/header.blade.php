@@ -1,5 +1,5 @@
 <div id="fh5co-header">
-	<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" id="fh5co-header-section">
+	<nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar fixed-top" id="fh5co-header-section">
 		<div class="container">
 			<div class="nav-header">
 				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
@@ -10,7 +10,7 @@
 						<li>
 							<a href="/">Home</a>
 						</li>
-						<li><a href="/wisata">Wisata</a></li>
+						<li><a href="{{ route('tourism.index') }}">Wisata</a></li>
 						<li><a href="/umkm">UMKM</a></li>
 						<li>
 							<a href="#" class="fh5co-sub-ddown sf-with-ul">

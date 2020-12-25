@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Tourism;
 use App\Tourism_pic;
+use Illuminate\Http\Request;
 
-class TourismController extends Controller
+class Tourism_picController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,17 +15,7 @@ class TourismController extends Controller
      */
     public function index()
     {
-        $dataTourism = Tourism::get();
-        return view('wisata.index', compact('dataTourism'));
-    }
-
-    public function random()
-    {
-        $dataTourism = Tourism::select('*')
-            ->inRandomOrder()
-            ->limit(3)
-            ->get();
-        return compact('dataTourism');
+        //
     }
 
     /**
@@ -45,21 +34,30 @@ class TourismController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $tourism_id)
     {
-        $nm = $request->photos1;
-        $namaFile = $nm->getClientOriginalName();
-        $dtUpload = new Tourism;
-        $dtUpload->judul = $request->judul;
-        $dtUpload->photos1_tourism = $namaFile;
-        $dtUpload->description_tourism = $request->description;
-        $dtUpload->fk_user_id = Auth::id();
-        $dtUpload->contact = $request->contact;
-        $dtUpload->map_url = $request->map_url;
-        $dtUpload->map_api = $request->map_api;
-        $nm->move(public_path() . '/imgTourism', $namaFile);
-        $dtUpload->save();
-        return redirect()->action([TourismController::class, 'index']);
+        $tourismPic = new Tourism_pic;
+        $tourism = Tourism::find($tourism_id);
+
+        $tourismPic->title = $request['title'];
+        $tourismPic->fk_tourism_id = $tourism_id;
+
+        if ($request->hasFile('pics')) {
+            $file = $request->file('pics');
+            $extension = $file->getClientOriginalExtension();
+            $filename = $tourism->judul . time() . '.' . $extension;
+            $file->move(public_path() . '/imgTourism/tourism_pic', $filename);
+            $tourismPic->pics = $filename;
+        } else {
+            /* return $request; */
+            $tourismPic->pics = '';
+        }
+
+        $tourismPic->save();
+
+        //Alert::success('Success', 'Post added');
+
+        return redirect()->route('tourism.show', ['tourism' => $tourism_id]);
     }
 
     /**
@@ -70,11 +68,7 @@ class TourismController extends Controller
      */
     public function show($id)
     {
-        $tourism = Tourism::find($id);
-
-        $TourismPics = Tourism_pic::where('fk_tourism_id', '=', $id)->get();
-
-        return view('wisata.show', compact('tourism', 'TourismPics'));
+        //
     }
 
     /**
@@ -108,8 +102,6 @@ class TourismController extends Controller
      */
     public function destroy($id)
     {
-        Post::destroy($id);
-
-        return redirect('tourism');
+        //
     }
 }
