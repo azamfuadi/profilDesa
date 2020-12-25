@@ -13,6 +13,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('content/homePage');
+// Route::get('/wisata', 'TourismController@index')->name('/');
+// Route::post('saveTourism', 'TourismController@store')->name('saveTourism');
+// Route::get('/wisata/{id}', 'TourismController@show');
+
+Route::resources([
+    'tourism' => 'TourismController',
+]);
+
+Route::post('/tourism_pic/{tourism_id}', 'Tourism_picController@store');
+
+Route::get('/umkm', function () {
+    return view('umkm/index');
 });
+
+Route::get('/contact', function () {
+    return view('content/contact');
+});
+
+
+Route::post('saveUmkm', 'UmkmController@store')->name('saveUmkm');
+Route::get('/umkm', 'UmkmController@index')->name('/umkm');
+Route::DELETE('/umkm/deleteUmkm/{id}', 'UmkmController@destroy');
+
+Route::get('/home', 'HomeController@random')->name('home');
+
+Route::get('/', 'HomeController@random')->name('/');
+
+Auth::routes();

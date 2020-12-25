@@ -1,35 +1,41 @@
-@extends('template/header')
+@extends('template.templatePage')
 @section('content')
+
+<!-- load css for homePage -->
+<link rel="stylesheet" href="{{ asset('/css/homePage.css') }}">
+
 <!-- banner area -->
-<div class="banner">
+<div>
 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
-				<img src="{{asset('images/banner/b1.jpg')}}" alt="...">
+				<img src="{{asset('images/banner/wisata.jpg')}}" alt="...">
 				<div class="container">
 					<!-- banner caption -->
 					<div class="carousel-caption slide-one">
 						<!-- heading -->
-						<h2 class="animated fadeInLeftBig"> Melodi For You!</h2>
+						<h2 class="animated fadeInLeftBig"> Tempat Wisata di Sambirejo!</h2>
 						<!-- paragraph -->
-						<h3 class="animated fadeInRightBig">Find More Innovative &amp; Creative Music Albums.</h3>
+						<h3 class="animated fadeInRightBig">Jelajahi Lebih Banyak <i class="fas fa-search-location"></i>
+						</h3>
 						<!-- button -->
-						<a href="#" class="animated fadeIn btn btn-theme">Download Here</a>
+						<a href="{{ route('tourism.index') }}" class="animated fadeIn btn btn-theme">Jelajah Wisata</a>
 					</div>
 				</div>
 			</div>
 			<div class="item">
-				<img src="{{asset('images/banner/b2.jpg')}}" alt="...">
+				<img src="{{asset('images/banner/umkm.jpg')}}" alt="...">
 				<div class="container">
 					<!-- banner caption -->
 					<div class="carousel-caption slide-two">
 						<!-- heading -->
-						<h2 class="animated fadeInLeftBig"> Listen It...</h2>
+						<h2 class="animated fadeInLeftBig"> UMKM di Sambirejo!</h2>
 						<!-- paragraph -->
-						<h3 class="animated fadeInRightBig">Lorem ipsum dolor sit amet, consectetur elit.</h3>
+						<h3 class="animated fadeInRightBig">Jelajahi Lebih Banyak <i class="fas fa-search-location"></i>
+						</h3>
 						<!-- button -->
-						<a href="#" class="animated fadeIn btn btn-theme">Listen Now</a>
+						<a href="/umkm" class="animated fadeIn btn btn-theme">Jelajah UMKM</a>
 					</div>
 				</div>
 			</div>
@@ -37,10 +43,12 @@
 
 		<!-- Controls -->
 		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-			<i class="far fa-arrow-alt-circle-left"></i>
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
 		</a>
 		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-			<i class="far fa-arrow-alt-circle-right">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
 		</a>
 	</div>
 </div>
@@ -48,85 +56,46 @@
 
 <br><br>
 <div class="fh5co-listing">
+	{{-- LIST Wisata --}}
 	<div class="container">
+		<div class="cls"></div>
 		<div class="row">
+			@foreach($dataTourism as $item)
 			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
-				<a class="fh5co-listing-item">
-					<img src="{{asset('images/img-1.jpg')}}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
-						class="img-responsive">
+				<a class="fh5co-listing-item" href="{{ route('tourism.show', ['tourism' => $item->id_tourism]) }}">
+					<img src="{{asset('imgTourism/'.$item->photos1_tourism)}}"
+						alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 					<div class="fh5co-listing-copy">
-						<h2>Parisu</h2>
+						<h2>{{ $item->judul }}</h2>
 						<span class="icon">
-							<i class="icon-chevron-right"></i>
+							<i class="glyphicon glyphicon-chevron-right"></i>
 						</span>
 					</div>
 				</a>
 			</div>
-			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
-				<a class="fh5co-listing-item">
-					<img src="images/img-2.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
-						class="img-responsive">
-					<div class="fh5co-listing-copy">
-						<h2>New York</h2>
-						<span class="icon">
-							<i class="icon-chevron-right"></i>
-						</span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
-				<a class="fh5co-listing-item">
-					<img src="images/img-3.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
-						class="img-responsive">
-					<div class="fh5co-listing-copy">
-						<h2>London</h2>
-						<span class="icon">
-							<i class="icon-chevron-right"></i>
-						</span>
-					</div>
-				</a>
-			</div>
+			@endforeach
 			<!-- END 3 row -->
-
+		</div>
+	</div>
+	{{-- LIST UMKM --}}
+	<div class="container">
+		<div class="cls"></div>
+		<div class="row">
+			@foreach($dataUmkm as $item)
 			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
 				<a class="fh5co-listing-item">
-					<img src="images/img-4.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
-						class="img-responsive">
+					<img src="{{asset('imgUmkm/'.$item->photos1_umkm)}}"
+						alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 					<div class="fh5co-listing-copy">
-						<h2>Amsterdam</h2>
+						<h2>{{ $item->judul }}</h2>
 						<span class="icon">
-							<i class="icon-chevron-right"></i>
+							<i class="glyphicon glyphicon-chevron-right"></i>
 						</span>
 					</div>
 				</a>
 			</div>
-			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
-				<a class="fh5co-listing-item">
-					<img src="images/img-5.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
-						class="img-responsive">
-					<div class="fh5co-listing-copy">
-						<h2>Australia</h2>
-						<span class="icon">
-							<i class="icon-chevron-right"></i>
-						</span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
-				<a class="fh5co-listing-item">
-					<img src="images/img-6.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
-						class="img-responsive">
-					<div class="fh5co-listing-copy">
-						<h2>Japan</h2>
-						<span class="icon">
-							<i class="icon-chevron-right"></i>
-						</span>
-					</div>
-				</a>
-			</div>
+			@endforeach
 			<!-- END 3 row -->
-
-
 		</div>
 	</div>
 </div>
@@ -169,5 +138,8 @@
 			</div>
 		</div>
 	</div>
+
 </div>
+
+
 @endsection
